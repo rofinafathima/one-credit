@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "AI Fact Checker",
+  "version": "1.0",
+  "description": "Real-time AI fact-checking for the web.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Fact Check"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["content.js"]
+    }
+  ]
+}

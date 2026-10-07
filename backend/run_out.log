@@ -1,0 +1,1 @@
+2026-09-27 15:35:15,934 - app.rag.vector_store - INFO - Initialized ChromaDB at ./data/knowledge_base

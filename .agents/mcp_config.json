@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "factchecker-mcp": {
+      "command": "d:\\one credit\\backend\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "app.mcp.server"
+      ],
+      "cwd": "d:\\one credit\\backend"
+    }
+  }
+}

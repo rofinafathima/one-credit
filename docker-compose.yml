@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: factchecker_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - LLM_API_KEY=${LLM_API_KEY}
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend/factcheck.db:/app/factcheck.db
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: factchecker_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
